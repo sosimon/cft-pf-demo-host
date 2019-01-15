@@ -18,10 +18,23 @@ variable "admin_email" {
   description = "Admin user email on Gsuite"
 }
 
-variable "organization_id" {}
-
-variable "billing_account" {}
-
 variable "credentials_path" {
-  description = "Path to a Service Account credentials file with permissions documented in the readme"
+  description = "Service account json auth path"
+}
+
+variable "organization_id" {
+  description = "The organization id for the associated services"
+}
+
+variable "billing_account" {
+  description = "The ID of the billing account to associate this project with"
+}
+
+variable "project_group_name" {
+  description = "The name of a GSuite group to create for controlling the project"
+  default     = "group-sample-project-owners"
+}
+
+variable "project_group_owner" {
+  description = "The email of a user or group to be set as the initial owner of the project dev groups for this application"
 }

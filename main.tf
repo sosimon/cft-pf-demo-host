@@ -38,10 +38,9 @@ provider "gsuite" {
   oauth_scopes = [
     "https://www.googleapis.com/auth/admin.directory.group",
     "https://www.googleapis.com/auth/admin.directory.group.member",
-    "https://www.googleapis.com/auth/admin.directory.user",
   ]
 
-  version = "~> 0.1.10"
+  version = "~> 0.1.9"
 }
 
 module "project-factory" {
@@ -54,5 +53,11 @@ module "project-factory" {
   credentials_path  = "${local.credentials_file_path}"
   create_group      = "true"
   group_name        = "${var.project_group_name}"
-  api_sa_group      = "${var.api_sa_group}"
+  group_role        = "roles/editor"
+}
+
+resource "gsuite_group_member" "group_owner" {
+  group = "${module.project-factory.group_email}"
+  email = "${var.project_group_owner}"
+  role  = "OWNER"
 }

@@ -32,7 +32,6 @@ variable "billing_account" {
 
 variable "project_group_name" {
   description = "The name of a GSuite group to create for controlling the project"
-  default     = "group-sample-project-owners"
 }
 
 variable "project_group_owner" {

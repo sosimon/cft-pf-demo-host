@@ -45,7 +45,7 @@ provider "gsuite" {
 
 module "project-factory" {
   source            = "terraform-google-modules/project-factory/google//modules/gsuite_enabled"
-  version           = "1.0.0"
+  version           = "2.1.3"
   random_project_id = "true"
   name              = "sso-cft-pf-demo-host"
   org_id            = "${var.organization_id}"
